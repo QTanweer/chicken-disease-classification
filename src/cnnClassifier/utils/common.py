@@ -66,3 +66,34 @@ def save_json(path: Path, data: dict):
     with open(path, "w", encoding='utf-8') as json_file:
         json.dump(data, json_file, indent=4)
     logger.info("json file: %s saved successfully", path)
+
+@ensure_annotations
+def load_bin(path: Path) -> Any:
+    """
+    Loads a binary file
+
+    Args:
+        path (Path): path like input to binary file
+
+    Returns:
+        Any: object stored in binary file
+    """
+    # with open(path, "rb") as bin_file:
+    data = joblib.load(path)
+    logger.info("binary file: %s loaded successfully", path)
+    return data
+
+@ensure_annotations
+def get_size(path: Path) -> Any:
+    """
+    Gets size of a file in KB
+
+    Args:
+        path (Path): path like input to file
+
+    Returns:
+        Any: size of file
+    """
+    size = f"~ {round(os.path.getsize(path) / 1024, 2)} KB"
+    logger.info("file: %s size: %s", path, size)
+    return size
