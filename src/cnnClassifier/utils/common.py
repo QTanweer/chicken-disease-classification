@@ -29,20 +29,23 @@ def read_yaml(path_to_yaml: Path) -> ConfigBox:
     Returns:
         ConfigBox: ConfigBox object
     """
-    try:
-        print(f"Inside read_yaml function's try: {path_to_yaml}, and type: {type(path_to_yaml)}")
-        with open(path_to_yaml, "w", encoding='utf-8') as yaml_file:
-            content = yaml.safe_load(yaml_file)
-            logger.info("yaml file: %s loaded successfully", path_to_yaml)
-            config = ConfigBox(content)
-            return config
-    except BoxValueError as exc:
-        raise ValueError('Empty yaml file') from exc
-    except Exception as ex:
-        raise ex
+
+    print(f"Inside read_yaml function before try clause: {path_to_yaml}, and type: {type(path_to_yaml)}")
+    # try:
+    #     print(f"Inside read_yaml function's try: {path_to_yaml}, and type: {type(path_to_yaml)}")
+    #     with open(path_to_yaml, "w", encoding='utf-8') as yaml_file:
+    #         content = yaml.safe_load(yaml_file)
+    #         logger.info("yaml file: %s loaded successfully", path_to_yaml)
+    #         config = ConfigBox(content)
+    #         return config
+    # except BoxValueError as exc:
+    #     raise ValueError('Empty yaml file') from exc
+    # except Exception as ex:
+    #     raise ex
+
 
 @ensure_annotations
-def create_directories(path_to_directories: list, verbose = True) -> None:
+def create_directories(path_to_directories: list, verbose=True) -> None:
     """
     Creates directories
 
@@ -54,6 +57,7 @@ def create_directories(path_to_directories: list, verbose = True) -> None:
         logger.info("directory: %s created successfully", dir_path)
         if verbose:
             logger.info("directory: %s created successfully", dir_path)
+
 
 @ensure_annotations
 def save_json(path: Path, data: dict):
@@ -67,7 +71,8 @@ def save_json(path: Path, data: dict):
     with open(path, "w", encoding='utf-8') as json_file:
         json.dump(data, json_file, indent=4)
     logger.info("json file: %s saved successfully", path)
-    
+
+
 @ensure_annotations
 def save_binary(path: Path, data: Any) -> None:
     """
@@ -79,6 +84,7 @@ def save_binary(path: Path, data: Any) -> None:
     """
     joblib.dump(value=data, filename=path)
     logger.info("binary file: %s saved successfully", path)
+
 
 @ensure_annotations
 def load_bin(path: Path) -> Any:
@@ -96,6 +102,7 @@ def load_bin(path: Path) -> Any:
     logger.info("binary file: %s loaded successfully", path)
     return data
 
+
 @ensure_annotations
 def get_size(path: Path) -> Any:
     """
@@ -111,14 +118,16 @@ def get_size(path: Path) -> Any:
     logger.info("file: %s size: %s", path, size)
     return size
 
+
 def decode_image(imgstring, file_name):
     """
     Decodes image from base64 string
     """
     imgdata = base64.b64decode(imgstring)
-    with  open(file_name, 'wb') as f:
+    with open(file_name, 'wb') as f:
         f.write(imgdata)
         f.close()
+
 
 def encode_image_base64(cropped_image_path):
     """
