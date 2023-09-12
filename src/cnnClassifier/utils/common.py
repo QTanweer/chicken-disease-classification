@@ -1,6 +1,7 @@
 """
 common utils 
 """
+
 import os
 from pathlib import Path
 import json
@@ -15,7 +16,7 @@ from cnnClassifier import logger
 
 
 @ensure_annotations
-def read_yaml(path_to_yaml: Path): # -> ConfigBox:
+def read_yaml(path_to_yaml: Path) -> ConfigBox:
     """
     Reads a yaml file and returns a ConfigBox object
 
@@ -34,17 +35,17 @@ def read_yaml(path_to_yaml: Path): # -> ConfigBox:
 
     print(os.path.exists(path_to_yaml))
 
-    # try:
-    #     print(f"Inside read_yaml function's try: {path_to_yaml}, and type: {type(path_to_yaml)}")
-    #     with open(path_to_yaml, "w", encoding='utf-8') as yaml_file:
-    #         content = yaml.safe_load(yaml_file)
-    #         logger.info("yaml file: %s loaded successfully", path_to_yaml)
-    #         config = ConfigBox(content)
-    #         return config
-    # except BoxValueError as exc:
-    #     raise ValueError('Empty yaml file') from exc
-    # except Exception as ex:
-    #     raise ex
+    try:
+        print(f"Inside read_yaml function's try: {path_to_yaml}, and type: {type(path_to_yaml)}")
+        with open(path_to_yaml, "r", encoding='utf-8') as yaml_file:
+            content = yaml.safe_load(yaml_file)
+            logger.info("yaml file: %s loaded successfully", path_to_yaml)
+            config = ConfigBox(content)
+            return config
+    except BoxValueError as exc:
+        raise ValueError('Empty yaml file') from exc
+    except Exception as ex:
+        raise ex
 
 
 @ensure_annotations
@@ -127,9 +128,9 @@ def decode_image(imgstring, file_name):
     Decodes image from base64 string
     """
     imgdata = base64.b64decode(imgstring)
-    with open(file_name, 'wb') as f:
-        f.write(imgdata)
-        f.close()
+    with open(file_name, 'wb') as file:
+        file.write(imgdata)
+        file.close()
 
 
 def encode_image_base64(cropped_image_path):
