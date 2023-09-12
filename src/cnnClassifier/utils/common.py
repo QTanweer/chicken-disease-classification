@@ -15,7 +15,7 @@ from cnnClassifier import logger
 
 
 @ensure_annotations
-def read_yaml(path_to_yaml: Path) -> ConfigBox:
+def read_yaml(path_to_yaml: Path): # -> ConfigBox:
     """
     Reads a yaml file and returns a ConfigBox object
 
@@ -30,7 +30,10 @@ def read_yaml(path_to_yaml: Path) -> ConfigBox:
         ConfigBox: ConfigBox object
     """
 
-    print(f"Inside read_yaml function before try clause: {path_to_yaml}, and type: {type(path_to_yaml)}")
+    print(f"Inside read_yaml func before try clause: {path_to_yaml},and type: {type(path_to_yaml)}")
+
+    print(os.path.exists(path_to_yaml))
+
     # try:
     #     print(f"Inside read_yaml function's try: {path_to_yaml}, and type: {type(path_to_yaml)}")
     #     with open(path_to_yaml, "w", encoding='utf-8') as yaml_file:
