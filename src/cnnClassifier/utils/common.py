@@ -31,18 +31,19 @@ def read_yaml(path_to_yaml: Path) -> ConfigBox:
         ConfigBox: ConfigBox object
     """
 
-    print(f"Inside read_yaml func before try clause: {path_to_yaml},and type: {type(path_to_yaml)}")
+    # print(f"Inside read_yaml func before try clase:{path_to_yaml},and type: {type(path_to_yaml)}")
 
-    print(os.path.exists(path_to_yaml))
+    # print(os.path.exists(path_to_yaml))
 
     try:
-        print(f"Inside read_yaml function's try: {path_to_yaml}, and type: {type(path_to_yaml)}")
+        # print(f"Inside read_yaml function's try: {path_to_yaml}, and type: {type(path_to_yaml)}")
         with open(path_to_yaml, "r", encoding='utf-8') as yaml_file:
             content = yaml.safe_load(yaml_file)
             logger.info("yaml file: %s loaded successfully", path_to_yaml)
             config = ConfigBox(content)
             return config
     except BoxValueError as exc:
+        print(f"Inside read_yaml function's except: {path_to_yaml} is empty")
         raise ValueError('Empty yaml file') from exc
     except Exception as ex:
         raise ex
