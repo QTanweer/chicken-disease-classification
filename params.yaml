@@ -1,1 +1,7 @@
-key:value
+# write dummy values so that empty file exception is not raised
+
+key: value # dummy value
+
+# another key value
+key2: value2
+
