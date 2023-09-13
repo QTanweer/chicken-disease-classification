@@ -62,6 +62,7 @@ def create_directories(path_to_directories: list, verbose=True) -> None:
         logger.info("directory: %s created successfully", dir_path)
         if verbose:
             logger.info("directory: %s created successfully", dir_path)
+    return None
 
 
 @ensure_annotations
