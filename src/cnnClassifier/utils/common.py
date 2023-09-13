@@ -7,11 +7,11 @@ from pathlib import Path
 import json
 from typing import Any
 import base64
-from box.exceptions import BoxValueError
 import yaml
 import joblib
 from ensure import ensure_annotations
 from box import ConfigBox
+from box.exceptions import BoxValueError
 from cnnClassifier import logger
 
 
