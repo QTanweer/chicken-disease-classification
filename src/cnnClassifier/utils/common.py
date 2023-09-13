@@ -50,7 +50,7 @@ def read_yaml(path_to_yaml: Path) -> ConfigBox:
 
 
 # @ensure_annotations
-def create_directories(path_to_directories: list, verbose=True) -> None:
+def create_directories(path_to_directories: list, verbose=True):
     """
     Creates directories
 
@@ -62,7 +62,7 @@ def create_directories(path_to_directories: list, verbose=True) -> None:
         logger.info("directory: %s created successfully", dir_path)
         if verbose:
             logger.info("directory: %s created successfully", dir_path)
-    return None
+
 
 
 @ensure_annotations
