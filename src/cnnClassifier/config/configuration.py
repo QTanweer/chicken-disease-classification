@@ -33,13 +33,13 @@ class ConfiguratonManager:
         """
         config = self.config.data_ingestion
 
-        create_directories([config.data_ingestion.root_dir])
+        create_directories([config.root_dir])
 
         return DataIngestionConfig(
-            root_dir = Path(config.data_ingestion.root_dir),
-            source_url = config.data_ingestion.source_url,
-            local_data_file = config.data_ingestion.local_data_file,
-            unzip_dir = config.data_ingestion.unzip_dir
+            root_dir = Path(config.root_dir),
+            source_url = config.source_url,
+            local_data_file = config.local_data_file,
+            unzip_dir = config.unzip_dir
         )
     def get_prepare_base_model_config(self) -> PrepareBaseModelConfig:
         """
