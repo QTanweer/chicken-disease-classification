@@ -1,7 +1,10 @@
-# write dummy values so that empty file exception is not raised
+# Model Params
 
-key: value # dummy value
-
-# another key value
-key2: value2
-
+AUGMENTATION: True
+IMAGE_SIZE: [224, 224, 16]
+BATCH_SIZE: 16
+INCLUDE_TOP: False
+EPOCHS: 1
+CLASSES: 2
+WEIGHTS: imagenet
+LEARNNG_RATE: 0.01
