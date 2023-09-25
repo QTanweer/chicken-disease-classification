@@ -12,7 +12,7 @@ from cnnClassifier.entity.config_entity import (DataIngestionConfig,
 
 
 
-class ConfiguratonManager:
+class ConfigurationManager:
     """
     Configuration Manager class
     """
@@ -72,9 +72,11 @@ class ConfiguratonManager:
             tensorboard_root_log_dir = Path(self.config.prepare_callbacks.tensorboard_root_log_dir),
             checkpoint_model_filepath= Path(self.config.prepare_callbacks.checkpoint_model_filepath)
         )
-    
 
     def get_training_config(self) -> TrainingConfig:
+        """
+        Returns TrainingConfig object
+        """
         training = self.config.training
         prepare_base_model = self.config.prepare_base_model
         params = self.params

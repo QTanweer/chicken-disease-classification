@@ -1,8 +1,8 @@
 """"
 Prepare Base Model Pipeline Stage 02
 """
-from cnnClassifier.config.configuration import ConfiguratonManager
-from cnnClassifier.compoents.prepare_base_model import PrepareBaseModel
+from cnnClassifier.config.configuration import ConfigurationManager
+from cnnClassifier.components.prepare_base_model import PrepareBaseModel
 from cnnClassifier import logger
 
 STAGE_NAME = "Prepare Base Model Stage"
@@ -18,7 +18,7 @@ class PrepareBaseModelPipeline:
         '''
         Main method for Prepare Base Model Pipeline Stage 02
         '''
-        config = ConfiguratonManager()
+        config = ConfigurationManager()
         prepare_base_model_config = config.get_prepare_base_model_config()
         prepare_base_model = PrepareBaseModel(config = prepare_base_model_config)
         prepare_base_model.get_base_model()

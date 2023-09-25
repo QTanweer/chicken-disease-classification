@@ -1,16 +1,24 @@
-from cnnClassifier.config.configuration import ConfiguratonManager
-from cnnClassifier.compoents.prepare_callbacks import PrepareCallback
-from cnnClassifier.compoents.training import Training
+"""
+Stage 03: Training
+"""
+from cnnClassifier.config.configuration import ConfigurationManager
+from cnnClassifier.components.prepare_callbacks import PrepareCallback
+from cnnClassifier.components.training import Training
 from cnnClassifier import logger
 
 STAGE_NAME = "Training"
 
 class ModelTrainingPipeline:
+    """
+    Training Pipeline Stage 03
+    """
     def __init__(self):
         pass
-    
+
     def main(self):
-        
+        '''
+        Main method for Training Pipeline Stage 03
+        '''    
         config = ConfigurationManager()
         prepare_callbacks_config = config.get_prepare_callback_config()
         prepare_callbacks = PrepareCallback(config=prepare_callbacks_config)
@@ -22,7 +30,7 @@ class ModelTrainingPipeline:
         training.train(
             callback_list=callback_list
         )
-    
+
 if __name__ == "__main__":
     try:
         logger.info(">>>>>Stage: %s started<<<<<" , STAGE_NAME)

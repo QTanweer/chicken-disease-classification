@@ -36,7 +36,7 @@ class PrepareCallback:
         Creates Model Checkpoint Callbacks    
         """
         return tf.keras.callbacks.ModelCheckpoint(
-            filepath=self.config.checkpoint_model_filepath,
+            filepath=str(self.config.checkpoint_model_filepath),
             save_best_only=True
         )
 
