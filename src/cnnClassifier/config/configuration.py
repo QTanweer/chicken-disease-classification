@@ -40,7 +40,7 @@ class ConfiguratonManager:
         return DataIngestionConfig(
             root_dir = Path(config.root_dir),
             source_url = config.source_url,
-            local_data_file = config.local_data_file,
+            local_data_file = Path(config.local_data_file),
             unzip_dir = config.unzip_dir
         )
     def get_prepare_base_model_config(self) -> PrepareBaseModelConfig:

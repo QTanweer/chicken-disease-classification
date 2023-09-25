@@ -109,8 +109,8 @@ def load_bin(path: Path) -> Any:
     return data
 
 
-@ensure_annotations
-def get_size(path: Path) -> Any:
+
+def get_size(path: Path):
     """
     Gets size of a file in KB
 
