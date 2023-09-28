@@ -40,6 +40,9 @@ class PrepareCallbacksConfig:
 
 @dataclass(frozen=True)
 class TrainingConfig:
+    """
+    TrainingConfig Entity class
+    """
     root_dir: Path
     trained_model_path: Path
     updated_base_model_path: Path
@@ -48,3 +51,15 @@ class TrainingConfig:
     params_batch_size: int
     params_is_augmentation: bool
     params_image_size: list
+
+
+@dataclass(frozen=True)
+class EvaluationConfig:
+    """	
+    EvaluationConfig Entity class
+    """
+    path_of_model: Path
+    training_data: Path
+    params_batch_size: int
+    params_image_size: list
+    all_params: dict
