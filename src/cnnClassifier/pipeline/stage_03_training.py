@@ -18,7 +18,7 @@ class ModelTrainingPipeline:
     def main(self):
         '''
         Main method for Training Pipeline Stage 03
-        '''    
+        '''
         config = ConfigurationManager()
         prepare_callbacks_config = config.get_prepare_callback_config()
         prepare_callbacks = PrepareCallback(config=prepare_callbacks_config)

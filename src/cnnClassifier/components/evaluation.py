@@ -14,8 +14,9 @@ class Evaluation:
     def __init__(self, config: EvaluationConfig):
         self.config = config
         self.score = None
+        self.valid_generator = None
 
-    def _valid_generator(self):
+    def _valid_generator (self):
 
         datagenerator_kwargs = dict(
             rescale=1./255,
